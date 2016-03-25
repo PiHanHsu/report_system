@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Category.create!( :name => "一般事故" )
+Category.create!( :name => "重大事故" )
+Category.create!( :name => "交警支援" )
+Category.create!( :name => "消防單位支援" )
+Category.create!( :name => "救護車支援" )
