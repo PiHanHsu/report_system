@@ -11,7 +11,7 @@
 	<li>
 		<%= comment.content %>
 		<%= comment.try(:user).try(:username) %>
-		<%= link_to 'Delete', report_comment_path(@report, comment) ,:method => :delete, :class => "btn btn-danger btn-xs" %>
+		<%= link_to 'Delete', report_comment_path(@report, comment) ,:method => :delete, :class => "btn btn-danger btn-xs" if comment.user == current_user %>
 	</li>
 <% end %>
 </ul>
