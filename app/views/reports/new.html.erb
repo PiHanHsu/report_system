@@ -1,0 +1,8 @@
+<%= form_for @report, :url => reports_path(@report) do |f| %>
+<%= render :partial => 'form', :locals => { :f=> f } %>
+
+<%= f.submit "Create", :class => "btn btn-primary" %>
+
+<%end%>
+
+<p><%= link_to 'Back to index', reports_path %></p>

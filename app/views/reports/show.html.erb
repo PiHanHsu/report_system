@@ -1,0 +1,27 @@
+<P> Title: <%= @report.title %>
+<p> Content: <%= @report.content %>
+<p> Category:
+	<% @report.categories.each do |c| %>
+		<%= c.name %>
+	<% end %>
+</p>
+
+<ul>
+<% @report.comments.each do |comment| %>
+	<li>
+		<%= comment.content %>
+		<%= comment.try(:user).try(:username) %>
+		<%= link_to 'Delete', report_comment_path(@report, comment) ,:method => :delete, :class => "btn btn-danger btn-xs" %>
+	</li>
+<% end %>
+</ul>
+
+<%= form_for @comment, :url => report_comments_path(@report) do |f| %>
+	<%= f.label :content, "Comment" %><br>
+	<%= f.text_field :content, :class => "form-control", :placeholder => "Input comment" %><br>
+
+<%= f.submit "Comment", :class => "btn btn-primary" %>
+<%end%>
+
+<br>
+<p><%= link_to 'Back to index', reports_path %></p>
