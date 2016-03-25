@@ -1,16 +1,16 @@
-<P> Title: <%= @report.title %>
-<p> Content: <%= @report.content %>
-<p> Category:
+<h1> <%= @report.title %> </h1>
+<h2> <%= @report.content %> </h2>
+<h4> 類別:
 	<% @report.categories.each do |c| %>
 		<%= c.name %>
 	<% end %>
-</p>
+</h4>
 
 <ul>
 <% @report.comments.each do |comment| %>
 	<li>
-		<%= comment.content %>
-		<%= comment.try(:user).try(:username) %>
+		<%= comment.content %><br>
+		<%= comment.user.username %>
 		<%= link_to 'Delete', report_comment_path(@report, comment) ,:method => :delete, :class => "btn btn-danger btn-xs" if comment.user == current_user %>
 	</li>
 <% end %>
